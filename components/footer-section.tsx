@@ -270,7 +270,7 @@ export default function FooterSection() {
           custom={3}
           variants={rowVariants}
         >
-          <span className="text-[16px] text-foreground font-medium">ADDRESS</span>
+          <span className="text-[16px] text-foreground font-regular">ADDRESS</span>
           <div>
             <a
               href="mailto:adnan.lozinr@gmail.com"
@@ -294,7 +294,7 @@ export default function FooterSection() {
   custom={4}
   variants={rowVariants}
 >
-  <span className="text-[16px] text-foreground font-medium">NEWSLETTER</span>
+  <span className="text-[16px] text-foreground font-regular">NEWSLETTER</span>
   <NewsletterForm />
 </motion.div>
 
