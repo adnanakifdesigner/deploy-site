@@ -44,7 +44,7 @@ export default function OurBeliefSection() {
           <div className="w-full aspect-video relative overflow-hidden bg-foreground/10">
             <img
               src="https://v7korlxmmmpzjkj8.private.blob.vercel-storage.com/faizur-rehman-aLq9KNZ4rjo-unsplash.jpg?vercel-blob-delegation=eyJzdG9yZUlkIjoic3RvcmVfdjdrb3JseG1NbXB6amtqOCIsIm93bmVySWQiOiJ0ZWFtX0doVHRRN3AxMjdJcmxkTnNvTGVDbkxhZSIsInBhdGhuYW1lIjoiKiIsIm9wZXJhdGlvbnMiOlsiZ2V0IiwiaGVhZCJdLCJ2YWxpZFVudGlsIjoxNzg0ODY1MzE5OTc1LCJpYXQiOjE3ODQ4MjIxMjAxOTF9.AQMzk3BXm7gBB5Ttxi6BxgTUwRyOvq8duipag3RFvVA&vercel-blob-signature=0ehQXd08tcVwxNnqVopz0tlCiQ0ww_sg4TPvd6b0CbA"
-              alt="Our belief"
+              alt="OUR BELIEF"
               className="w-full h-full object-cover"
             />
           </div>
