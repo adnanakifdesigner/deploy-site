@@ -172,7 +172,7 @@ function AnimatedLogo() {
   {text.split("").map((char, index) => (
     <motion.span
       key={index}
-      className="text-[clamp(65px,18vw,305px)] font-medium tracking-tighter text-foreground leading-none"
+      className="text-[clamp(65px,18vw,310px)] font-medium tracking-tighter text-foreground leading-none"
       initial={{ y: 60, opacity: 0 }}
       animate={
         isInView
@@ -291,7 +291,7 @@ export default function FooterSection() {
       </div>
 
       {/* Logo - Full width container */}
-      <div className="w-screen relative left-1/2 right-1/2 -ml-[50vw] -mr-[50vw] px-5 lg:px-6 py-0 bg-background">
+      <div className="w-screen relative left-1/2 right-1/2 -ml-[50vw] -mr-[50vw] px-5 lg:px-5 py-0 bg-background">
         <AnimatedLogo />
       </div>
     </footer>
