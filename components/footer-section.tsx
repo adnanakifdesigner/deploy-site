@@ -116,7 +116,7 @@ function NewsletterForm() {
   return (
     <form
       onSubmit={handleSubmit}
-      className="flex items-center justify-between border border-foreground rounded-LG px-5 py-3 w-full max-w-FULL"
+      className="flex items-center justify-between border border-foreground rounded-LG px-3 py-3 w-full max-w-FULL"
     >
       <input
         type="email"
@@ -222,7 +222,7 @@ export default function FooterSection() {
           custom={1}
           variants={rowVariants}
         >
-          <span className="text-[16px] text-foreground font-medium">Nav</span>
+          <span className="text-[16px] text-foreground font-regular">NAV</span>
           <nav className="flex flex-col gap-0">
             {navLinks.map((link) => (
               <a
@@ -245,7 +245,7 @@ export default function FooterSection() {
           custom={2}
           variants={rowVariants}
         >
-          <span className="text-[16px] text-foreground font-medium">Social</span>
+          <span className="text-[16px] text-foreground font-regular">SOCIALS</span>
           <div className="flex flex-col gap-0">
             {socialLinks.map((link) => (
               <a
