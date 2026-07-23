@@ -218,7 +218,7 @@ export default function FooterSection() {
               <a
                 key={link.name}
                 href={link.href}
-                className="text-[16px] text-foreground underline underline-offset-4 decoration-foreground w-fit"
+                className="text-[22px] text-foreground underline underline-offset-4 decoration-foreground w-fit"
               >
                 <AnimatedText text={link.name} />
               </a>
@@ -243,7 +243,7 @@ export default function FooterSection() {
                 href={link.link}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-[16px] text-foreground underline underline-offset-4 decoration-foreground w-fit"
+                className="text-[22px] text-foreground underline underline-offset-4 decoration-foreground w-fit"
               >
                 <AnimatedText text={link.name} />
               </a>
@@ -264,7 +264,7 @@ export default function FooterSection() {
           <div>
             <a
               href="mailto:adnan.lozinr@gmail.com"
-              className="text-[16px] text-foreground underline underline-offset-4 decoration-foreground block mb-3 w-fit"
+              className="text-[22px] text-foreground underline underline-offset-4 decoration-foreground block mb-3 w-fit"
             >
               <AnimatedText text="Start a project" />
             </a>
