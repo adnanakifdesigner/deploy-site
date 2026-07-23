@@ -125,7 +125,7 @@ export default function TemplateProducts() {
                 </div>
 
                 {/* Product Info — below thumbnail, uniform text sizes */}
-                <div className="flex flex-col pt-3 gap-1">
+                <div className="flex flex-col pt-3 gap-0">
                   <h3 className="text-[22px] font-regular tracking-tight text-black leading-tight">
                     {product.title}
                   </h3>
