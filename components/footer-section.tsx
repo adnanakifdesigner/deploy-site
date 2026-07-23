@@ -31,13 +31,13 @@ function AnimatedText({ text }: { text: string }) {
     <motion.div
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
-      className="overflow-hidden h-6 cursor-pointer"
+      className="overflow-hidden h-[30px] leading-[30px] cursor-pointer"
       transition={{ duration: 0.2 }}
     >
       {/* Primary Text */}
       <motion.div
         className="flex"
-        animate={{ y: isHovered ? -24 : 0 }}
+        animate={{ y: isHovered ? -30 : 0 }}
         transition={{ duration: 0.6, ease: 'easeInOut' }}
       >
         {text.split('').map((char, index) => (
@@ -70,7 +70,7 @@ function AnimatedText({ text }: { text: string }) {
       {/* Secondary Text */}
       <motion.div
         className="flex"
-        animate={{ y: isHovered ? -24 : 0 }}
+        animate={{ y: isHovered ? -30 : 0 }}
         transition={{ duration: 0.6, ease: 'easeInOut' }}
       >
         {text.split('').map((char, index) => (
