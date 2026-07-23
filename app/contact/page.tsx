@@ -1,5 +1,4 @@
 import type { Metadata } from 'next'
-import ContactClient from '@/components/contact-client'
 
 export const metadata: Metadata = {
   title: 'Start a Project | Lozinr Brand Identity Studio',
@@ -17,6 +16,15 @@ export const metadata: Metadata = {
 }
 
 export default function Contact() {
-  return <ContactClient />
+  return (
+    <div className="min-h-screen bg-background text-foreground p-8">
+      <div className="max-w-2xl mx-auto">
+        <h1 className="text-4xl font-bold mb-4">Contact Us</h1>
+        <p className="text-lg text-muted-foreground">
+          The contact form component is currently being rebuilt. Please check back soon.
+        </p>
+      </div>
+    </div>
+  )
 }
 
