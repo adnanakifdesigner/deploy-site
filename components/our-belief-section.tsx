@@ -3,7 +3,7 @@
 import React from 'react'
 import { motion } from 'framer-motion'
 
-const OUR_BELIEF_TEXT = "Our Belief"
+const OUR_BELIEF_TEXT = "OUR BELIEF"
 const BELIEF_DESCRIPTION = `Great brands aren't built by decoration.
 They're built through clear thinking, intentional systems, and decisions that serve the business—not trends.
 That's the standard we hold ourselves to on every project.`
