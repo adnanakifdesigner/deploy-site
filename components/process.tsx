@@ -183,7 +183,7 @@ function ProcessListItem({
       <motion.span
         animate={{ opacity: isActive ? 1 : 0.25, x: isActive ? 6 : 0 }}
         transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
-        className="block text-[16px] md:text-[42px] font-regular tracking-tight leading-[1.05] text-foreground"
+        className="block text-[22px] md:text-[48px] font-regular tracking-tight leading-[1.05] text-foreground"
       >
         {step.title}
       </motion.span>
@@ -202,7 +202,7 @@ export default function Process() {
         {/* Left 40% — dot + label. Always full width on top for mobile,
             becomes the first column on desktop. */}
         <div className="w-full md:w-2/5 flex items-center gap-2 md:self-start">
-          <span className="w-[12px] h-[12px] rounded-full bg-foreground" />
+          <span className="w-[15px] h-[15px] bg-foreground" />
           <span className="text-[22px] font-regular text-foreground tracking-tight">
             Process
           </span>
