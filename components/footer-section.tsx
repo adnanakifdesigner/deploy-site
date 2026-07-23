@@ -212,7 +212,7 @@ export default function FooterSection() {
           custom={1}
           variants={rowVariants}
         >
-          <span className="text-[16px] text-foreground font-regular">NAV</span>
+          <span className="text-[22px] text-foreground font-regular">NAV</span>
           <nav className="flex flex-col gap-0">
             {navLinks.map((link) => (
               <a
@@ -235,7 +235,7 @@ export default function FooterSection() {
           custom={2}
           variants={rowVariants}
         >
-          <span className="text-[16px] text-foreground font-regular">SOCIALS</span>
+          <span className="text-[22px] text-foreground font-regular">SOCIALS</span>
           <div className="flex flex-col gap-0">
             {socialLinks.map((link) => (
               <a
@@ -260,7 +260,7 @@ export default function FooterSection() {
           custom={3}
           variants={rowVariants}
         >
-          <span className="text-[16px] text-foreground font-regular">ADDRESS</span>
+          <span className="text-[22px] text-foreground font-regular">ADDRESS</span>
           <div>
             <a
               href="mailto:adnan.lozinr@gmail.com"
@@ -268,7 +268,7 @@ export default function FooterSection() {
             >
               <AnimatedText text="Start a project" />
             </a>
-            <p className="text-[16px] text-foreground leading-snug">
+            <p className="text-[22px] text-foreground leading-snug">
               Based in Bangladesh<br />
               Working Worldwide.
             </p>
@@ -284,7 +284,7 @@ export default function FooterSection() {
   custom={4}
   variants={rowVariants}
 >
-  <span className="text-[16px] text-foreground font-regular">NEWSLETTER</span>
+  <span className="text-[22px] text-foreground font-regular">NEWSLETTER</span>
   <NewsletterForm />
 </motion.div>
 
