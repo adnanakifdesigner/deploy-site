@@ -215,7 +215,7 @@ export default function Process() {
 
   return (
     <div className="w-full bg-background text-foreground py-20 md:py-24 px-5 lg:px-6">
-      <div className="flex flex-col md:flex-row md:items-start gap-y-8 gap-x-6">
+      <div className="flex flex-col md:flex-row md:items-start gap-y-8 gap-x-0">
         {/* Left 50% — dot + label */}
         <div className="w-full md:w-1/2 flex items-center gap-2 md:self-start">
           <span className="w-[15px] h-[15px] bg-foreground" />
