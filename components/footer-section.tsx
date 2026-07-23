@@ -128,7 +128,7 @@ function NewsletterForm() {
       />
       <button
         type="submit"
-        className="text-[14px] font-medium tracking-wide text-foreground shrink-0 ml-3"
+        className="text-[14px] font-regular tracking-wide text-foreground shrink-0 ml-3"
       >
         ENTER
       </button>
@@ -201,17 +201,6 @@ export default function FooterSection() {
     <footer className="relative w-full bg-background">
       <div className="relative z-20 px-5 lg:px-6 pt-0 md:pt-0 pb-1 md:pb-4">
 
-        {/* Row 0 — Divider with tagline */}
-        <motion.div
-          className="py-3 md:py-10"
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: false, margin: '-40px' }}
-          custom={0}
-          variants={rowVariants}
-        >
-          <p className="md:text-[36px] text-[18px] text-foreground font-medium tracking-tight">Built for founders who think long term.</p>
-        </motion.div>
 
         {/* Row 1 — Nav */}
         <motion.div
