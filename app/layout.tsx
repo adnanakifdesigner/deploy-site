@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 import { Analytics } from '@vercel/analytics/next'
 import PageTransition from '@/components/page-transition'
-import './globals.css'
+import './styles.css'
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://lozinr.com'),
