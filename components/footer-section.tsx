@@ -7,6 +7,7 @@ const navLinks = [
   
   { name: 'Work', href: '' },
   { name: 'Contact', href: '' },
+  { name: 'Store', href: '' },
 ]
 
 const socialLinks = [
