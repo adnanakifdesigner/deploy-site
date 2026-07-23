@@ -203,8 +203,8 @@ export default function Process() {
             becomes the first column on desktop. */}
         <div className="w-full md:w-2/5 flex items-center gap-2 md:self-start">
           <span className="w-[15px] h-[15px] bg-foreground" />
-          <span className="text-[22px] font-regular text-foreground tracking-tight">
-            Process
+          <span className="text-[16px] font-regular text-foreground tracking-tight">
+            PROCESS
           </span>
         </div>
 
