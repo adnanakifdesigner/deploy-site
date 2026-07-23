@@ -127,9 +127,9 @@ function SocialLinkWithAnimation({
   const ButtonContent = ({ variant }: { variant: 'primary' | 'secondary' }) => {
     const isPrimary = variant === 'primary'
     return (
-      <div className="flex items-center gap-1 flex-shrink-0">
+      <div className="flex items-center gap-2 flex-shrink-0">
         <span
-          className={`text-[22px] font-normal tracking-wide uppercase rounded-full px-4 py-4 whitespace-nowrap h-[24px] flex items-center border ${
+          className={`text-[22px] font-normal tracking-wide uppercase rounded-full px-5 py-2.5 whitespace-nowrap flex items-center border ${
             isPrimary
               ? 'text-foreground border-foreground/40 bg-transparent'
               : 'text-background border-foreground bg-foreground'
