@@ -219,7 +219,7 @@ export default function Process() {
         {/* Left 50% — dot + label */}
         <div className="w-full md:w-1/2 flex items-center gap-2 md:self-start">
           <span className="w-[15px] h-[15px] bg-foreground" />
-          <span className="text-[16px] font-regular text-foreground tracking-tight">
+          <span className="text-[22px] font-regular text-foreground tracking-tight">
             PROCESS
           </span>
         </div>
