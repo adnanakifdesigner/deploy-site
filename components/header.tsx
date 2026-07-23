@@ -129,7 +129,7 @@ function SocialLinkWithAnimation({
     return (
       <div className="flex items-center gap-1 flex-shrink-0">
         <span
-          className={`text-[22px] font-normal tracking-wide uppercase rounded-full px-4 py-2 whitespace-nowrap h-[24px] flex items-center border ${
+          className={`text-[22px] font-normal tracking-wide uppercase rounded-full px-4 py-4 whitespace-nowrap h-[24px] flex items-center border ${
             isPrimary
               ? 'text-foreground border-foreground/40 bg-transparent'
               : 'text-background border-foreground bg-foreground'
