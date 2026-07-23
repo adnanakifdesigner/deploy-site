@@ -79,7 +79,7 @@ const processSteps = [
 ]
 
 const DESC_TEXT_CLASS =
-  'text-[14px] md:text-[18px] leading-snug font-normal tracking-tight text-foreground'
+  'text-[16px] md:text-[22px] leading-snug font-normal tracking-tight text-foreground'
 
 // ─── True line-by-line reveal ─────────────────────────────────────
 // Measures the ACTUAL rendered line breaks (not sentences) by laying the
