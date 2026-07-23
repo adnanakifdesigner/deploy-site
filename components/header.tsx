@@ -6,7 +6,7 @@ import { useRouter, usePathname } from 'next/navigation'
 
 
 
-// ─── Typography Scale (Inter — entire website) ───────────────────────────────
+// ─── Typography Scale (Helvetica Neue — entire website) ───────────────────────────────
 // H1  : text-[40px] md:text-[72px] font-semibold tracking-tighter
 // H2  : text-[30px] md:text-[52px] font-semibold tracking-tighter
 // H3  : text-[22px] md:text-[32px] font-medium  tracking-tight
@@ -204,8 +204,7 @@ function MobileNavItem({
       onClick={onClick}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
-      className="text-[79px] font-regular tracking-tighter leading-[0.5em] overflow-hidden h-[70px] relative block transition-colors duration-200 text-foreground"
-      style={{ fontFamily: 'var(--font-display)' }}
+      className="text-[79px] font-regular tracking-tighter leading-[0.5em] overflow-hidden h-[70px] relative block transition-colors duration-200 text-foreground font-sans"
     >
       {/* Entrance reveal wrapper (top -> bottom) */}
       <motion.div
@@ -309,7 +308,7 @@ export default function Header() {
     return () => { document.body.style.overflow = '' }
   }, [isMenuOpen])
 
-  const navLinks = ['Work', 'Template System', 'Store']
+  const navLinks = ['Work', 'Store']
 
   const socialLinks = [
     { name: 'Instagram', link: 'https://www.instagram.com/adnaanakif' },
@@ -319,7 +318,6 @@ export default function Header() {
   const handleNavClick = (link: string) => {
     if (link === 'Home') router.push('/')
     else if (link === 'Work') router.push('/work')
-    else if (link === 'Template System') router.push('/template-system')
     else if (link === 'Store') router.push('/store')
   }
 
