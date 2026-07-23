@@ -309,7 +309,7 @@ export default function Header() {
     return () => { document.body.style.overflow = '' }
   }, [isMenuOpen])
 
-  const navLinks = ['Work', 'Contact', 'Store']
+  const navLinks = ['Work', 'Template System', 'Store']
 
   const socialLinks = [
     { name: 'Instagram', link: 'https://www.instagram.com/adnaanakif' },
@@ -320,7 +320,7 @@ export default function Header() {
     if (link === 'Home') router.push('/')
     else if (link === 'Work') router.push('/work')
     else if (link === 'Template System') router.push('/template-system')
-    else if (link === 'Contact') window.open(CONTACT_LINK, '_blank', 'noopener,noreferrer')
+    else if (link === 'Store') router.push('/store')
   }
 
   // Mobile logo and hamburger colors

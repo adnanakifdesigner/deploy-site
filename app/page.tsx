@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
-import HomeWithPreloader from '@/components/home-with-preloader'
+import Header from '@/components/header'
+import HeroSection from '@/components/hero-section'
 
 export const metadata: Metadata = {
   title: 'Lozinr — Brand Identity Studio for Funded Startups & Ambitious Founders',
@@ -17,5 +18,12 @@ export const metadata: Metadata = {
 }
 
 export default function Home() {
-  return <HomeWithPreloader />
+  return (
+    <>
+      <Header />
+      <main>
+        <HeroSection triggerAnimation={true} />
+      </main>
+    </>
+  )
 }
