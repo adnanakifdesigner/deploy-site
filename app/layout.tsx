@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import { Noto_Sans_Display } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/next'
+import PageTransition from '@/components/page-transition'
 import './globals.css'
 
 const notoSansDisplay = Noto_Sans_Display({
@@ -124,7 +125,7 @@ export default function RootLayout({
         />
       </head>
       <body className="antialiased bg-transparent text-foreground transition-colors duration-300">
-        {children}
+        <PageTransition>{children}</PageTransition>
         <Analytics />
       </body>
     </html>
