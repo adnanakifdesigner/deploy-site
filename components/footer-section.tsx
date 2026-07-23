@@ -117,7 +117,7 @@ function NewsletterForm() {
   return (
     <form
       onSubmit={handleSubmit}
-      className="flex items-center justify-between border border-foreground rounded-LG px-3 py-3 w-full max-w-FULL"
+      className="flex items-center justify-between border border-foreground  px-3 py-3 w-full max-w-FULL"
     >
       <input
         type="email"
@@ -125,11 +125,11 @@ function NewsletterForm() {
         value={email}
         onChange={(e) => setEmail(e.target.value)}
         placeholder="EMAIL ADDRESS"
-        className="bg-transparent outline-none text-[14px] tracking-wide placeholder:text-foreground/50 text-foreground w-full"
+        className="bg-transparent outline-none text-[22px] tracking-wide placeholder:text-foreground/50 text-foreground w-full"
       />
       <button
         type="submit"
-        className="text-[14px] font-regular tracking-wide text-foreground shrink-0 ml-3"
+        className="text-[22px] font-regular tracking-wide text-foreground shrink-0 ml-3"
       >
         ENTER
       </button>
