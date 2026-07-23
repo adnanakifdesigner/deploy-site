@@ -102,6 +102,40 @@ function AnimatedText({ text }: { text: string }) {
   )
 }
 
+function NewsletterForm() {
+  const [email, setEmail] = useState('')
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault()
+    if (!email) return
+    // TODO: connect to your email provider / API route
+    console.log('Subscribe:', email)
+    setEmail('')
+  }
+
+  return (
+    <form
+      onSubmit={handleSubmit}
+      className="flex items-center justify-between border border-foreground rounded-LG px-5 py-3 w-full max-w-FULL"
+    >
+      <input
+        type="email"
+        required
+        value={email}
+        onChange={(e) => setEmail(e.target.value)}
+        placeholder="EMAIL ADDRESS"
+        className="bg-transparent outline-none text-[14px] tracking-wide placeholder:text-foreground/50 text-foreground w-full"
+      />
+      <button
+        type="submit"
+        className="text-[14px] font-medium tracking-wide text-foreground shrink-0 ml-3"
+      >
+        ENTER
+      </button>
+    </form>
+  )
+}
+
 function AnimatedLogo() {
   const containerRef = useRef<HTMLDivElement>(null)
   const [isInView, setIsInView] = useState(false)
@@ -236,7 +270,7 @@ export default function FooterSection() {
           custom={3}
           variants={rowVariants}
         >
-          <span className="text-[16px] text-foreground font-medium">Address</span>
+          <span className="text-[16px] text-foreground font-medium">ADDRESS</span>
           <div>
             <a
               href="mailto:adnan.lozinr@gmail.com"
@@ -250,6 +284,19 @@ export default function FooterSection() {
             </p>
           </div>
         </motion.div>
+
+        {/* Row 4 — Newsletter */}
+<motion.div
+  className="grid grid-cols-2 border-t border-foreground py-3 md:py-10"
+  initial="hidden"
+  whileInView="visible"
+  viewport={{ once: false, margin: '-40px' }}
+  custom={4}
+  variants={rowVariants}
+>
+  <span className="text-[16px] text-foreground font-medium">NEWSLETTER</span>
+  <NewsletterForm />
+</motion.div>
 
       </div>
 
