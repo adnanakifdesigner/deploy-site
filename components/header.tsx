@@ -451,7 +451,7 @@ export default function Header() {
 
             {/* Content layer — 3 Column Grid Layout */}
             <motion.div
-              className="fixed inset-0 z-[61] flex items-stretch"
+              className="fixed inset-0 z-[61] flex items-stretch overflow-visible"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
@@ -518,7 +518,7 @@ export default function Header() {
               {/* Desktop 3-Column Layout */}
               <div className="hidden md:flex inset-0 w-full items-stretch">
                 {/* Left Column — SVG Logo */}
-                <div className="flex-1 border-r border-foreground flex items-start justify-left pt-8 px-6 overflow-hidden">
+                <div className="flex-1 border-r border-foreground flex items-start justify-left pt-8 px-6">
   <motion.img
     src="/menu-logo.svg"
     alt="Menu Logo"
@@ -531,7 +531,7 @@ export default function Header() {
 </div>
 
                 {/* Middle Column — Navigation */}
-                <div className="flex-1 border-r border-foreground flex flex-col justify-between py-8 px-6">
+                <div className="flex-1 border-r border-foreground flex flex-col justify-between py-8 px-6 overflow-visible">
                   {/* Navigation Items — Top, Left-Aligned */}
                   <div className="flex flex-col items-start justify-start" style={{ lineHeight: '0.7' }}>
                     {navLinks.map((link, index) => {
