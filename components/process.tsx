@@ -79,7 +79,7 @@ const processSteps = [
 ]
 
 const DESC_TEXT_CLASS =
-  'text-[14px] md:text-[18px] leading-snug font-normal tracking-tight text-foreground'
+  'text-[16px] md:text-[22px] leading-snug font-normal tracking-tight text-foreground'
 
 // ─── True line-by-line reveal ─────────────────────────────────────
 // Measures the ACTUAL rendered line breaks (not sentences) by laying the
@@ -155,7 +155,7 @@ function LineReveal({ text }: { text: string }) {
   )
 }
 
-// ─── List item (shared between mobile grid + desktop row) ────────
+// ─── List item with inline expanding description ─────────────────
 function ProcessListItem({
   step,
   isActive,
@@ -173,20 +173,38 @@ function ProcessListItem({
       onClick={onSelect}
       className="relative w-full text-left py-3 md:py-4 border-b border-foreground last:border-none focus:outline-none"
     >
-      {isActive && (
+      <div className="flex items-center gap-3">
+        {isActive && (
+          <motion.span
+            layoutId="process-active-indicator"
+            className="w-[10px] h-[10px] rounded-full bg-foreground shrink-0"
+            transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
+          />
+        )}
         <motion.span
-          layoutId="process-active-indicator"
-          className="absolute -left-3 top-1/2 -translate-y-1/2 w-[10px] h-[10px] rounded-full bg-foreground"
+          animate={{ opacity: isActive ? 1 : 0.25 }}
           transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
-        />
-      )}
-      <motion.span
-        animate={{ opacity: isActive ? 1 : 0.25, x: isActive ? 6 : 0 }}
-        transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
-        className="block text-[16px] md:text-[42px] font-medium tracking-tight leading-[1.05] text-foreground"
-      >
-        {step.title}
-      </motion.span>
+          className="block text-[22px] md:text-[48px] font-regular tracking-tight leading-[1.05] text-foreground"
+        >
+          {step.title}
+        </motion.span>
+      </div>
+
+      <AnimatePresence initial={false}>
+        {isActive && (
+          <motion.div
+            initial={{ height: 0, opacity: 0 }}
+            animate={{ height: 'auto', opacity: 1 }}
+            exit={{ height: 0, opacity: 0 }}
+            transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
+            className="overflow-hidden"
+          >
+            <div className="pt-2 pb-1 pl-0 md:pl-6">
+              <LineReveal text={step.description} />
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </button>
   )
 }
@@ -194,51 +212,28 @@ function ProcessListItem({
 // ─── Main ────────────────────────────────────────────────────────
 export default function Process() {
   const [activeIndex, setActiveIndex] = useState(0)
-  const active = processSteps[activeIndex]
 
   return (
     <div className="w-full bg-background text-foreground py-20 md:py-24 px-5 lg:px-6">
-      <div className="flex flex-col md:flex-row md:items-start gap-y-8 gap-x-6 md:gap-x-6">
-        {/* Left 40% — dot + label. Always full width on top for mobile,
-            becomes the first column on desktop. */}
-        <div className="w-full md:w-2/5 flex items-center gap-2 md:self-start">
-          <span className="w-[12px] h-[12px] rounded-full bg-foreground" />
-          <span className="text-[22px] font-medium text-foreground tracking-tight">
-            Process
+      <div className="flex flex-col md:flex-row md:items-start gap-y-8 gap-x-0">
+        {/* Left 50% — dot + label */}
+        <div className="w-full md:w-1/2 flex items-center gap-2 md:self-start">
+          <span className="w-[15px] h-[15px] bg-foreground" />
+          <span className="text-[22px] font-regular text-foreground tracking-tight">
+            PROCESS
           </span>
         </div>
 
-        {/* Mobile: 2-col grid (list | description) sitting below the label.
-            Desktop: md:contents removes this wrapper's own box, so its two
-            children fall back into the outer flex row as columns 2 and 3,
-            top-aligned with the label via md:items-start above. */}
-        <div className="w-full grid grid-cols-2 gap-x-4 md:contents">
-          {/* Middle 40% on desktop — list */}
-          <div className="w-full md:w-2/5 flex flex-col md:self-start">
-            {processSteps.map((step, i) => (
-              <ProcessListItem
-                key={step.id}
-                step={step}
-                isActive={i === activeIndex}
-                onSelect={() => setActiveIndex(i)}
-              />
-            ))}
-          </div>
-
-          {/* Right 20% on desktop — description, true line-by-line reveal */}
-          <div className="w-full md:w-1/5 md:self-start md:pl-3">
-            <AnimatePresence mode="wait">
-              <motion.div
-                key={active.id}
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                exit={{ opacity: 0 }}
-                transition={{ duration: 0.2 }}
-              >
-                <LineReveal text={active.description} />
-              </motion.div>
-            </AnimatePresence>
-          </div>
+        {/* Right 50% — list, description expands under active title */}
+        <div className="w-full md:w-1/2 flex flex-col md:self-start">
+          {processSteps.map((step, i) => (
+            <ProcessListItem
+              key={step.id}
+              step={step}
+              isActive={i === activeIndex}
+              onSelect={() => setActiveIndex(i)}
+            />
+          ))}
         </div>
       </div>
     </div>

@@ -7,6 +7,7 @@ const navLinks = [
   
   { name: 'Work', href: '' },
   { name: 'Contact', href: '' },
+  { name: 'Store', href: '' },
 ]
 
 const socialLinks = [
@@ -30,13 +31,13 @@ function AnimatedText({ text }: { text: string }) {
     <motion.div
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
-      className="overflow-hidden h-6 cursor-pointer"
+      className="overflow-hidden h-[30px] leading-[30px] cursor-pointer"
       transition={{ duration: 0.2 }}
     >
       {/* Primary Text */}
       <motion.div
         className="flex"
-        animate={{ y: isHovered ? -24 : 0 }}
+        animate={{ y: isHovered ? -30 : 0 }}
         transition={{ duration: 0.6, ease: 'easeInOut' }}
       >
         {text.split('').map((char, index) => (
@@ -69,7 +70,7 @@ function AnimatedText({ text }: { text: string }) {
       {/* Secondary Text */}
       <motion.div
         className="flex"
-        animate={{ y: isHovered ? -24 : 0 }}
+        animate={{ y: isHovered ? -30 : 0 }}
         transition={{ duration: 0.6, ease: 'easeInOut' }}
       >
         {text.split('').map((char, index) => (
@@ -99,6 +100,40 @@ function AnimatedText({ text }: { text: string }) {
         ))}
       </motion.div>
     </motion.div>
+  )
+}
+
+function NewsletterForm() {
+  const [email, setEmail] = useState('')
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault()
+    if (!email) return
+    // TODO: connect to your email provider / API route
+    console.log('Subscribe:', email)
+    setEmail('')
+  }
+
+  return (
+    <form
+      onSubmit={handleSubmit}
+      className="flex items-center justify-between border border-foreground  px-3 py-3 w-full max-w-FULL"
+    >
+      <input
+        type="email"
+        required
+        value={email}
+        onChange={(e) => setEmail(e.target.value)}
+        placeholder="EMAIL ADDRESS"
+        className="bg-transparent outline-none text-[22px] tracking-wide placeholder:text-foreground/50 text-foreground w-full"
+      />
+      <button
+        type="submit"
+        className="text-[22px] font-regular tracking-wide text-foreground shrink-0 ml-3"
+      >
+        ENTER
+      </button>
+    </form>
   )
 }
 
@@ -137,7 +172,7 @@ function AnimatedLogo() {
   {text.split("").map((char, index) => (
     <motion.span
       key={index}
-      className="text-[clamp(65px,18vw,305px)] font-medium tracking-tighter text-foreground leading-none"
+      className="text-[clamp(65px,18vw,310px)] font-medium tracking-tighter text-foreground leading-none"
       initial={{ y: 60, opacity: 0 }}
       animate={
         isInView
@@ -167,17 +202,6 @@ export default function FooterSection() {
     <footer className="relative w-full bg-background">
       <div className="relative z-20 px-5 lg:px-6 pt-0 md:pt-0 pb-1 md:pb-4">
 
-        {/* Row 0 — Divider with tagline */}
-        <motion.div
-          className="py-3 md:py-10"
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: false, margin: '-40px' }}
-          custom={0}
-          variants={rowVariants}
-        >
-          <p className="md:text-[36px] text-[18px] text-foreground font-medium tracking-tight">Built for founders who think long term.</p>
-        </motion.div>
 
         {/* Row 1 — Nav */}
         <motion.div
@@ -188,13 +212,13 @@ export default function FooterSection() {
           custom={1}
           variants={rowVariants}
         >
-          <span className="text-[16px] text-foreground font-medium">Nav</span>
+          <span className="text-[22px] text-foreground font-regular">NAV</span>
           <nav className="flex flex-col gap-0">
             {navLinks.map((link) => (
               <a
                 key={link.name}
                 href={link.href}
-                className="text-[16px] text-foreground underline underline-offset-4 decoration-foreground w-fit"
+                className="text-[22px] text-foreground underline underline-offset-4 decoration-foreground w-fit"
               >
                 <AnimatedText text={link.name} />
               </a>
@@ -211,7 +235,7 @@ export default function FooterSection() {
           custom={2}
           variants={rowVariants}
         >
-          <span className="text-[16px] text-foreground font-medium">Social</span>
+          <span className="text-[22px] text-foreground font-regular">SOCIALS</span>
           <div className="flex flex-col gap-0">
             {socialLinks.map((link) => (
               <a
@@ -219,7 +243,7 @@ export default function FooterSection() {
                 href={link.link}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-[16px] text-foreground underline underline-offset-4 decoration-foreground w-fit"
+                className="text-[22px] text-foreground underline underline-offset-4 decoration-foreground w-fit"
               >
                 <AnimatedText text={link.name} />
               </a>
@@ -236,25 +260,38 @@ export default function FooterSection() {
           custom={3}
           variants={rowVariants}
         >
-          <span className="text-[16px] text-foreground font-medium">Address</span>
+          <span className="text-[22px] text-foreground font-regular">ADDRESS</span>
           <div>
             <a
               href="mailto:adnan.lozinr@gmail.com"
-              className="text-[16px] text-foreground underline underline-offset-4 decoration-foreground block mb-3 w-fit"
+              className="text-[22px] text-foreground underline underline-offset-4 decoration-foreground block mb-3 w-fit"
             >
               <AnimatedText text="Start a project" />
             </a>
-            <p className="text-[16px] text-foreground leading-snug">
+            <p className="text-[22px] text-foreground leading-snug">
               Based in Bangladesh<br />
               Working Worldwide.
             </p>
           </div>
         </motion.div>
 
+        {/* Row 4 — Newsletter */}
+<motion.div
+  className="grid grid-cols-2 border-t border-foreground py-3 md:py-10"
+  initial="hidden"
+  whileInView="visible"
+  viewport={{ once: false, margin: '-40px' }}
+  custom={4}
+  variants={rowVariants}
+>
+  <span className="text-[22px] text-foreground font-regular">NEWSLETTER</span>
+  <NewsletterForm />
+</motion.div>
+
       </div>
 
       {/* Logo - Full width container */}
-      <div className="w-screen relative left-1/2 right-1/2 -ml-[50vw] -mr-[50vw] px-5 lg:px-6 py-0 bg-background">
+      <div className="w-screen relative left-1/2 right-1/2 -ml-[50vw] -mr-[50vw] px-5 lg:px-5 py-0 bg-background">
         <AnimatedLogo />
       </div>
     </footer>

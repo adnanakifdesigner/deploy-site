@@ -1,7 +1,13 @@
 import type { Metadata } from 'next'
+import { Noto_Sans_Display } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/next'
-import PageTransition from '@/components/page-transition'
 import './globals.css'
+
+const notoSansDisplay = Noto_Sans_Display({
+  subsets: ['latin'],
+  weight: ['400', '700'],
+  variable: '--font-display',
+})
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://lozinr.com'),
@@ -110,7 +116,7 @@ export default function RootLayout({
   }
 
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="en" suppressHydrationWarning className={notoSansDisplay.variable}>
       <head>
         <script
           type="application/ld+json"
@@ -118,7 +124,7 @@ export default function RootLayout({
         />
       </head>
       <body className="antialiased bg-transparent text-foreground transition-colors duration-300">
-        <PageTransition>{children}</PageTransition>
+        {children}
         <Analytics />
       </body>
     </html>

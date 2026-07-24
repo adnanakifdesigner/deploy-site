@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
-  title: 'Template System — Design System & Guidelines | Lozinr',
+  title: 'Store — Design System & Guidelines | Lozinr',
   description: 'Explore our comprehensive design system with templates, guidelines, and brand components. Maintain consistency across all digital and physical touchpoints.',
   keywords: [
     'design system',

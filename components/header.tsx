@@ -3,10 +3,11 @@
 import { useState, useEffect, useRef } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { useRouter, usePathname } from 'next/navigation'
+import SocialButton from './social-button'
 
 
 
-// ─── Typography Scale (Inter — entire website) ───────────────────────────────
+// ─── Typography Scale (Helvetica Neue — entire website) ───────────────────────────────
 // H1  : text-[40px] md:text-[72px] font-semibold tracking-tighter
 // H2  : text-[30px] md:text-[52px] font-semibold tracking-tighter
 // H3  : text-[22px] md:text-[32px] font-medium  tracking-tight
@@ -113,76 +114,7 @@ function DesktopNavItem({
   )
 }
 
-function SocialLinkWithAnimation({
-  social,
-  index,
-  onClose,
-}: {
-  social: { name: string; link: string }
-  index: number
-  onClose: () => void
-}) {
-  const [isHovered, setIsHovered] = useState(false)
 
-  const ButtonContent = ({ variant }: { variant: 'primary' | 'secondary' }) => {
-    const isPrimary = variant === 'primary'
-    return (
-      <div className="flex items-center gap-1 flex-shrink-0">
-        <span
-          className={`text-[11px] md:text-[12px] font-normal tracking-wide uppercase rounded-full px-2 py-1 whitespace-nowrap h-[24px] flex items-center border ${
-            isPrimary
-              ? 'text-foreground border-foreground/40 bg-transparent'
-              : 'text-background border-foreground bg-foreground'
-          }`}
-        >
-          {social.name}
-        </span>
-        <span
-          className={`w-7 h-7 rounded-full border flex items-center justify-center flex-shrink-0 ${
-            isPrimary
-              ? 'border-foreground/40 bg-transparent'
-              : 'border-foreground bg-foreground'
-          }`}
-        >
-          <svg
-            className={`w-3 h-3 ${isPrimary ? 'text-foreground' : 'text-background'}`}
-            viewBox="0 0 10 10"
-            fill="none"
-          >
-            <path d="M2 8L8 2M8 2H3M8 2V7" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round" />
-          </svg>
-        </span>
-      </div>
-    )
-  }
-
-  return (
-    <motion.a
-  href={social.link}
-  target="_blank"
-  rel="noopener noreferrer"
-  className="overflow-hidden flex-shrink-0 h-8"
-  onMouseEnter={() => setIsHovered(true)}
-  onMouseLeave={() => setIsHovered(false)}
-  initial={{ opacity: 0, y: 16 }}
-  animate={{ opacity: 1, y: 0 }}
-  transition={{ delay: 0.5 + index * 0.1, duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
-  onClick={onClose}
->
-  <motion.div
-    animate={{ y: isHovered ? -32 : 0 }}
-    transition={{ duration: 0.6, ease: [0.76, 0, 0.24, 1] }}
-  >
-    <div className="h-8 flex items-center">
-      <ButtonContent variant="primary" />
-    </div>
-    <div className="h-8 flex items-center">
-      <ButtonContent variant="secondary" />
-    </div>
-  </motion.div>
-</motion.a>
-  )
-}
 
 function MobileNavItem({
   label,
@@ -204,8 +136,7 @@ function MobileNavItem({
       onClick={onClick}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
-      className="text-[79px] font-regular tracking-tighter leading-[0.5em] overflow-hidden h-[70px] relative block transition-colors duration-200 text-foreground"
-      style={{ fontFamily: 'var(--font-display)' }}
+      className="text-[79px] font-regular tracking-tighter leading-[0.5em] overflow-hidden h-[70px] relative block transition-colors duration-200 text-foreground font-sans"
     >
       {/* Entrance reveal wrapper (top -> bottom) */}
       <motion.div
@@ -309,18 +240,18 @@ export default function Header() {
     return () => { document.body.style.overflow = '' }
   }, [isMenuOpen])
 
-  const navLinks = ['Work', 'Contact', 'Store']
+  const navLinks = ['Work', 'Store', 'Contact']
 
   const socialLinks = [
     { name: 'Instagram', link: 'https://www.instagram.com/adnaanakif' },
   { name: 'Twitter', link: 'https://x.com/adnaanakif' },
+  { name: 'Youtube', link: 'https://youtube.com/adnaanakif' },
   ]
 
   const handleNavClick = (link: string) => {
     if (link === 'Home') router.push('/')
     else if (link === 'Work') router.push('/work')
-    else if (link === 'Template System') router.push('/template-system')
-    else if (link === 'Contact') window.open(CONTACT_LINK, '_blank', 'noopener,noreferrer')
+    else if (link === 'Store') router.push('/store')
   }
 
   // Mobile logo and hamburger colors
@@ -452,7 +383,7 @@ export default function Header() {
 
             {/* Content layer — 3 Column Grid Layout */}
             <motion.div
-              className="fixed inset-0 z-[61] flex items-stretch"
+              className="fixed inset-0 z-[61] flex items-stretch overflow-visible"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
@@ -474,7 +405,7 @@ export default function Header() {
   </div>
 
   {/* Middle — Nav + Social Links */}
-  <div className="flex-1 border-b border-foreground flex flex-col py-8 px-4">
+  <div className="flex-1 border-b border-foreground flex flex-col py-8 px-4 overflow-visible">
     {/* Navigation Items — Top, Left-Aligned */}
     <div className="flex flex-col items-start justify-start" style={{ lineHeight: '0.7' }}>
       {navLinks.map((link, index) => {
@@ -502,9 +433,10 @@ export default function Header() {
     {/* Social Links — extra gap from nav above */}
     <div className="flex flex-row items-center gap-3 flex-wrap mt-16">
       {socialLinks.map((social, index) => (
-        <SocialLinkWithAnimation
+        <SocialButton
           key={social.name}
-          social={social}
+          name={social.name}
+          link={social.link}
           index={index}
           onClose={() => setIsMenuOpen(false)}
         />
@@ -519,11 +451,11 @@ export default function Header() {
               {/* Desktop 3-Column Layout */}
               <div className="hidden md:flex inset-0 w-full items-stretch">
                 {/* Left Column — SVG Logo */}
-                <div className="flex-1 border-r border-foreground flex items-start justify-left pt-8 px-6 overflow-hidden">
+                <div className="flex-1 border-r border-foreground flex items-start justify-left pt-8 px-6">
   <motion.img
-    src="/menu-logo.svg"
-    alt="Menu Logo"
-    className="h-70 w-auto"
+    src="/wordmark.png"
+    alt="Lozinr Studio"
+    className="h-auto w-full max-w-xs"
     initial={{ clipPath: 'inset(0 0 100% 0)' }}
     animate={{ clipPath: 'inset(0 0 0% 0)' }}
     exit={{ clipPath: 'inset(0 0 100% 0)' }}
@@ -532,7 +464,7 @@ export default function Header() {
 </div>
 
                 {/* Middle Column — Navigation */}
-                <div className="flex-1 border-r border-foreground flex flex-col justify-between py-8 px-6">
+                <div className="flex-1 border-r border-foreground flex flex-col justify-between py-8 px-6 overflow-visible">
                   {/* Navigation Items — Top, Left-Aligned */}
                   <div className="flex flex-col items-start justify-start" style={{ lineHeight: '0.7' }}>
                     {navLinks.map((link, index) => {
@@ -560,9 +492,10 @@ export default function Header() {
                   {/* Social Links — Bottom, Single Row */}
                   <div className="flex flex-row items-center gap-3 flex-nowrap">
                     {socialLinks.map((social, index) => (
-                      <SocialLinkWithAnimation
+                      <SocialButton
                         key={social.name}
-                        social={social}
+                        name={social.name}
+                        link={social.link}
                         index={index}
                         onClose={() => setIsMenuOpen(false)}
                       />
