@@ -50,7 +50,7 @@ export default function SocialButton({ name, link, index, onClose }: SocialButto
       href={link}
       target="_blank"
       rel="noopener noreferrer"
-      className="relative inline-flex flex-shrink-0"
+      className="relative inline-flex flex-shrink-0 h-12 overflow-hidden"
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
       initial={{ opacity: 0, y: 16 }}
