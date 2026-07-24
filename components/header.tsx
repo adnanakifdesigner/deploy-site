@@ -492,9 +492,10 @@ export default function Header() {
                   {/* Social Links — Bottom, Single Row */}
                   <div className="flex flex-row items-center gap-3 flex-nowrap">
                     {socialLinks.map((social, index) => (
-                      <SocialLinkWithAnimation
+                      <SocialButton
                         key={social.name}
-                        social={social}
+                        name={social.name}
+                        link={social.link}
                         index={index}
                         onClose={() => setIsMenuOpen(false)}
                       />
