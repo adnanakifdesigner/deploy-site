@@ -453,9 +453,9 @@ export default function Header() {
                 {/* Left Column — SVG Logo */}
                 <div className="flex-1 border-r border-foreground flex items-start justify-left pt-8 px-6">
   <motion.img
-    src="/menu-logo.svg"
-    alt="Menu Logo"
-    className="h-70 w-auto"
+    src="/wordmark.png"
+    alt="Lozinr Studio"
+    className="h-auto w-full max-w-xs"
     initial={{ clipPath: 'inset(0 0 100% 0)' }}
     animate={{ clipPath: 'inset(0 0 0% 0)' }}
     exit={{ clipPath: 'inset(0 0 100% 0)' }}
