@@ -473,7 +473,7 @@ export default function Header() {
   </div>
 
   {/* Middle — Nav + Social Links */}
-  <div className="flex-1 border-b border-foreground flex flex-col py-8 px-4">
+  <div className="flex-1 border-b border-foreground flex flex-col py-8 px-4 overflow-visible">
     {/* Navigation Items — Top, Left-Aligned */}
     <div className="flex flex-col items-start justify-start" style={{ lineHeight: '0.7' }}>
       {navLinks.map((link, index) => {
@@ -499,7 +499,7 @@ export default function Header() {
     </div>
 
     {/* Social Links — extra gap from nav above */}
-    <div className="flex flex-row items-center gap-3 flex-wrap mt-16">
+    <div className="flex flex-row items-center gap-3 flex-wrap mt-16 overflow-visible">
       {socialLinks.map((social, index) => (
         <SocialLinkWithAnimation
           key={social.name}
